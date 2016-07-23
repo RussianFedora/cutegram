@@ -1,0 +1,63 @@
+From c1b3c335b7ac700ee5b19b56b527f8d4d1a99435 Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+Date: Sat, 23 Jul 2016 16:37:03 +0200
+Subject: [PATCH 2/2] desktop: Exec=cutegram when binaryMode is enabled
+
+Closes: #231
+Signed-off-by: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+---
+ cutegram.pro                                    | 7 ++++++-
+ share/{Cutegram.desktop => Cutegram.desktop.in} | 2 +-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+ rename share/{Cutegram.desktop => Cutegram.desktop.in} (84%)
+
+diff --git a/cutegram.pro b/cutegram.pro
+index d87ed00..9bbe2dd 100644
+--- a/cutegram.pro
++++ b/cutegram.pro
+@@ -9,15 +9,19 @@ contains(CONFIG, binaryMode) {
+     RESOURCES += \
+         resource.qrc \
+         emojis/emojis.qrc
++    SHORTCUT = cutegram
+ } else {
+     TEMPLATE = aux
++    SHORTCUT = qmlscene /usr/share/cutegram/3.0/main.qml
+ }
+ 
+ OTHER_FILES += $$files(*, true)
+ VERSION = 3.0
+ 
++shortcut.input = share/Cutegram.desktop.in
++shortcut.output = share/Cutegram.desktop
+ shortcut.path = $$PREFIX/share/applications/
+-shortcut.files = share/Cutegram.desktop
++shortcut.files = $$shortcut.output
+ icons.path = $$PREFIX/share/icons
+ icons.files = share/hicolor
+ pixmaps.path = $$PREFIX/share/pixmaps
+@@ -44,4 +48,5 @@ qmlFiles.files = \
+     GPL.txt \
+     LICENSE
+ 
++QMAKE_SUBSTITUTES += shortcut
+ INSTALLS += qmlFiles shortcut icons pixmaps
+diff --git a/share/Cutegram.desktop b/share/Cutegram.desktop.in
+similarity index 84%
+rename from share/Cutegram.desktop
+rename to share/Cutegram.desktop.in
+index c5710b9..a8bf3fc 100644
+--- a/share/Cutegram.desktop
++++ b/share/Cutegram.desktop.in
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Categories=Network;Application;
+ Comment=A telegram client by Aseman
+-Exec=qmlscene /usr/share/cutegram/3.0/main.qml
++Exec=$$SHORTCUT
+ GenericName=Telegram client
+ Icon=cutegram
+ Name=Cutegram
+-- 
+2.9.2
+
