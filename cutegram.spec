@@ -31,6 +31,9 @@ Provides:       bundled(js-twemoji)
 
 Requires:       hicolor-icon-theme
 
+Requires:       aseman-qt-tools%{?_isa}
+Requires:       telegramqml%{?_isa}
+
 %description
 A different telegram client from Aseman team. Cutegram forked from Sigram
 by Sialan Labs. Cutegram project are released under the terms of the GPLv3
