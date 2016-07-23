@@ -1,7 +1,7 @@
 From c1b3c335b7ac700ee5b19b56b527f8d4d1a99435 Mon Sep 17 00:00:00 2001
 From: Igor Gnatenko <i.gnatenko.brain@gmail.com>
 Date: Sat, 23 Jul 2016 16:37:03 +0200
-Subject: [PATCH 2/2] desktop: Exec=cutegram when binaryMode is enabled
+Subject: [PATCH 2/3] desktop: Exec=cutegram when binaryMode is enabled
 
 Closes: #231
 Signed-off-by: Igor Gnatenko <i.gnatenko.brain@gmail.com>

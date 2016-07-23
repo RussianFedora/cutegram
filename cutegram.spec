@@ -5,7 +5,7 @@
 
 Name:         cutegram
 Version:      3.0
-Release:      0.2git%{shortcommit}%{?dist}
+Release:      0.3git%{shortcommit}%{?dist}
 Summary:      Cutegram is a telegram client by Aseman Land
 
 # Bundled JS stuff:
@@ -17,6 +17,7 @@ Source0:        %{url}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 # https://github.com/Aseman-Land/Cutegram/pull/233
 Patch0001:      0001-Install-cutegram-binary-when-BinaryMode-is-enabled.patch
 Patch0002:      0002-desktop-Exec-cutegram-when-binaryMode-is-enabled.patch
+Patch0003:      0003-don-t-install-qmlFiles-when-binaryMode-is-enabled.patch
 
 BuildRequires:  gcc-c++
 
@@ -70,12 +71,14 @@ fi
 %files
 %license GPL.txt
 %{_bindir}/%{name}
-%{_datadir}/%{name}/
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{origname}.desktop
 
 %changelog
+* Sat Jul 23 2016 Igor Gnatenko <ignatenko@redhat.com> - 3.0-0.3git7294861
+- Apply patch to not install uncompressed qml files (we use one-binary mode)
+
 * Sat Jul 23 2016 Igor Gnatenko <ignatenko@redhat.com> - 3.0-0.2git7294861
 - Fix BuildRequires and Requires
 
