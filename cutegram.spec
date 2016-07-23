@@ -5,7 +5,7 @@
 
 Name:         cutegram
 Version:      3.0
-Release:      0.1git%{shortcommit}%{?dist}
+Release:      0.2git%{shortcommit}%{?dist}
 Summary:      Cutegram is a telegram client by Aseman Land
 
 # Bundled JS stuff:
@@ -76,5 +76,8 @@ fi
 %{_datadir}/applications/%{origname}.desktop
 
 %changelog
+* Sat Jul 23 2016 Igor Gnatenko <ignatenko@redhat.com> - 3.0-0.2git7294861
+- Fix BuildRequires and Requires
+
 * Sat Jul 23 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 3.0-0.1git7294861
 - Initial commit.
