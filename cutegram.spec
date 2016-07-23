@@ -22,7 +22,6 @@ BuildRequires:  gcc-c++
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtquick1-devel
-BuildRequires:  qt5-qtmultimedia-devel
 
 BuildRequires:  /usr/bin/desktop-file-validate
 
