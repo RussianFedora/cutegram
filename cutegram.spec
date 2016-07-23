@@ -1,4 +1,4 @@
-%global decname Cutegram
+%global origname Cutegram
 
 %global commit 7294861b65861adb401668291d85970c5900fc5b
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
@@ -12,7 +12,7 @@ Summary:      Cutegram is a telegram client by Aseman Land
 # js-linkify: MIT
 # js-twemoji: MIT and CC-BY-4.0
 License:        GPLv3+ and MIT and CC-BY-4.0
-URL:            https://github.com/Aseman-Land/%{decname}
+URL:            https://github.com/Aseman-Land/%{origname}
 Source0:        %{url}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 # https://github.com/Aseman-Land/Cutegram/pull/233
 Patch0001:      0001-Install-cutegram-binary-when-BinaryMode-is-enabled.patch
@@ -32,6 +32,7 @@ Requires:       hicolor-icon-theme
 
 Requires:       aseman-qt-tools%{?_isa}
 Requires:       telegramqml%{?_isa}
+Requires:       qt5-qtquickcontrols%{?_isa}
 
 %description
 A different telegram client from Aseman team. Cutegram forked from Sigram
@@ -39,7 +40,7 @@ by Sialan Labs. Cutegram project are released under the terms of the GPLv3
 license.
 
 %prep
-%autosetup -n %{decname}-%{commit} -p1
+%autosetup -n %{origname}-%{commit} -p1
 mkdir %{_target_platform}
 
 %build
@@ -52,7 +53,7 @@ popd
 %make_install INSTALL_ROOT=%{buildroot} -C %{_target_platform}
 
 %check
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{decname}.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{origname}.desktop
 
 %post
 /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
@@ -72,7 +73,7 @@ fi
 %{_datadir}/%{name}/
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
-%{_datadir}/applications/%{decname}.desktop
+%{_datadir}/applications/%{origname}.desktop
 
 %changelog
 * Sat Jul 23 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 3.0-0.1git7294861
