@@ -5,7 +5,7 @@
 
 Name:         cutegram
 Version:      3.0
-Release:      0.3git%{shortcommit}%{?dist}
+Release:      0.4git%{shortcommit}%{?dist}
 Summary:      Cutegram is a telegram client by Aseman Land
 
 # Bundled JS stuff:
@@ -34,6 +34,7 @@ Requires:       hicolor-icon-theme
 Requires:       aseman-qt-tools%{?_isa}
 Requires:       telegramqml%{?_isa}
 Requires:       qt5-qtquickcontrols%{?_isa}
+Requires:       qt5-qtgraphicaleffects%{?_isa}
 
 %description
 A different telegram client from Aseman team. Cutegram forked from Sigram
@@ -76,6 +77,9 @@ fi
 %{_datadir}/applications/%{origname}.desktop
 
 %changelog
+* Sat Jul 23 2016 Igor Gnatenko <ignatenko@redhat.com> - 3.0-0.4git7294861
+- Add missing Requires: qt5-qtgraphicaleffects
+
 * Sat Jul 23 2016 Igor Gnatenko <ignatenko@redhat.com> - 3.0-0.3git7294861
 - Apply patch to not install uncompressed qml files (we use one-binary mode)
 
