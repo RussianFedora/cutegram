@@ -21,7 +21,7 @@ Patch0002:      0002-desktop-Exec-cutegram-when-binaryMode-is-enabled.patch
 BuildRequires:  gcc-c++
 
 BuildRequires:  qt5-qtbase-devel
-BuildRequires:  qt5-qtquick1-devel
+BuildRequires:  qt5-qtdeclarative-devel
 
 BuildRequires:  /usr/bin/desktop-file-validate
 
